@@ -1,0 +1,76 @@
+body{
+    background-color: #141414;
+    font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 90px;
+}
+.users_container{
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.users_title{
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    
+}
+
+.user_name{
+    color: #7a7a7a;
+    font-size: 1.15rem;
+    position:absolute;
+    bottom: -50px;
+    text-align: center;
+    width: 150px;
+}
+
+.user{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background-color: rgb(217, 95, 73);
+    border-radius: 5px;
+    border: 3px solid transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+.user:hover{
+    cursor: pointer;
+    border-color: #fff;
+}
+
+.user:hover .user_name {
+    color: #fff;
+}
+
+.users_button{
+    margin-top: 6rem;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.08rem;
+    color: #7a7a7a;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 0;
+    background-color: inherit;
+    border: 1px solid #7a7a7a;
+}
+
+.users_button:hover{
+    cursor: pointer;
+    border-color: #fff;
+    color: #fff;
+}

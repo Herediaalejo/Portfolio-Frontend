@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d7e1e8;
+}
+
+.title{
+    margin-bottom: 5vh;
+}
+
+.wrapper {
+    width: 65vmin;
+    height: 70vmin;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #293447;
+    border-radius: 5px;
+}
+
+.game-details{
+    color: #b8c6dc;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.play-board{
+    width: 100%;
+    height: 100%;
+    background-color: #212837;
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+
+.play-board .food {
+    background-color: #ff003d;
+}
+
+.play-board .head {
+    background-color: #48ff73;
+}
+
+.game-over-text {
+    display: none;
+    position: absolute;
+    font-size: 1.2rem; 
+    background-color: rgb(71, 71, 71); 
+    padding: 20px; 
+    border-radius: 20px; 
+    font-family: "Gothic A1";
+    transition: all 2s ease; 
+}
+
+footer{
+    margin-top: 5vh;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #5d5f5f7a;
+
+}
