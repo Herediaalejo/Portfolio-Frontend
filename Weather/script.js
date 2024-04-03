@@ -26,12 +26,15 @@ async function getWeather(event) {
     const query = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
     const result = await fetch(query)
     const data = await result.json()
+    console.log(query)
     const weather = {
         temperature: kelvinToCelcius(data.main.temp),
         main: data.weather[0].main,
-        name: cityData.name,
+        location: cityData.name,
         humidity: data.main.humidity,
-        wind: data.wind.speed
+        wind: data.wind.speed,
+        country: data.sys.country,
+        icon: WEATHER_ICONS[data.weather[0].icon]
     }
     updateHtml(weather)
     document.querySelector("main").style.visibility = "visible";
@@ -44,15 +47,19 @@ searchInput.addEventListener('input', (event) => {
     //console.log(event.target.value)
 })
 
-function updateHtml({ temperature, main, name, humidity, wind }){
+function updateHtml({ temperature, main, location, country, humidity, wind, icon }){
     const temp = document.querySelector('.info__temperature')
     const condition = document.querySelector('.info__condition')
-    const location = document.querySelector('.info-extra__location')
+    const locationDiv = document.querySelector('.info__location')
     const humPercentage = document.querySelector('.info-conditions__humidity-percentage')
     const windSpeed = document.querySelector('.info-conditions__wind-speed-speed')
+    const infoImage = document.querySelector('.info__image')
+    const input = document.querySelector('.search-bar__input')
+    input.value = ''
+    infoImage.setAttribute('src', `./images/SVG/${icon}.svg`)
     temp.innerText = `${temperature}°C`;
     condition.innerText = main;
-    location.innerText = name;
+    locationDiv.innerHTML = `${location}, <span style="font-weight: bold">${country}</span>`;
     humPercentage.innerText = `${humidity}%`;
     windSpeed.innerText = `${wind} Km/h`;
 }

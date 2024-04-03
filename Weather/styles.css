@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 *{
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,12 +10,11 @@
 
 body{
     height: 100vh;
-    overflow: hidden;
     background-image: 
     linear-gradient(
         150deg,
-        rgb(179, 179, 198) 0%,
-        #3d81da 70%
+        rgb(209, 209, 222) 0%,
+        #3d81da 60%
     );
     display: flex;
     flex-direction: column;
@@ -21,7 +24,11 @@ body{
 }
 
 main {
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 img {
@@ -37,11 +44,6 @@ img {
     align-items: flex-start;
 }
 
-.header__icon {
-    height: 5rem;
-    width: auto;
-}
-
 .search-bar{
     width: 100%;
     height: auto;
@@ -49,12 +51,80 @@ img {
     justify-content: center;
 }
 
+.search-bar__input{
+    width: 20rem;
+    height: 3rem;
+    font-size: 1rem;
+    border-radius: 1.5rem 0 0 1.5rem;
+    border: none;
+    padding: 0 1rem;
+}
+
+.search-bar__input:focus {
+    outline: none;
+}
+
+.search-bar__icon{
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    border: none;
+    transition: background-color 0.5s ease;
+}
+
+.search-bar__icon:hover{
+    background-color: rgb(246, 246, 138);
+}
+
+.header__icon {
+    height: 3.5rem;
+    width: auto;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
 .info__image{
-    margin-top: 20px;
-    height: 200px;
+    height: 8rem;
+    margin-top: 30px;
+}
+
+.info__temperature{
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.info__condition{
+    margin-top: -5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.info-extra{
+    color: white;
+    display: flex;
 }
 
 .info-extra img {
     height: 2rem;
     width: auto;
+    margin-right: 10px;
 }
+
+.info-conditions{
+    font-size: 1.1rem;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.info-conditions__stat{
+    font-weight: bold;
+}
+
+
