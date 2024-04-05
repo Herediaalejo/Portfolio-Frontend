@@ -10,17 +10,49 @@
 
 body{
     height: 100vh;
-    background-image: 
-    linear-gradient(
-        150deg,
-        rgb(209, 209, 222) 0%,
-        #3d81da 60%
-    );
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 0.5rem 2rem;
+}
+
+.body--clear{
+    background-image: 
+    linear-gradient(
+        150deg,
+        #d1d1de 0%,
+        #3d81da 60%
+    );
+}
+
+.body--night{
+    background-image: 
+    linear-gradient(
+        150deg,
+        #313131 0%,
+        #5e6c7d 60%
+    );
+}
+
+.body--rain{
+    background-image: 
+    linear-gradient(
+        150deg,
+        #828181 0%,
+        #6c6b6b 10%,
+        #343a42 50%
+    );
+}
+
+.body--clouds{
+    background-image: 
+    linear-gradient(
+        150deg,
+        #d1d1de 0%,
+        #4f5763 60%
+    );
 }
 
 main {
@@ -111,20 +143,31 @@ img {
 }
 
 .info-extra img {
-    height: 2rem;
+    height: 2.2rem;
     width: auto;
     margin-right: 10px;
+    padding: 0;
 }
 
 .info-conditions{
+    min-width: 150px;
     font-size: 1.1rem;
     margin-top: 40px;
     display: flex;
     justify-content: center;
 }
 
+.info-conditions-icon{
+    margin-top: 6px;
+}
+
 .info-conditions__stat{
+    font-size: 1.3rem;
     font-weight: bold;
+}
+
+.info-conditions__text{
+    opacity: .7 ;
 }
 
 

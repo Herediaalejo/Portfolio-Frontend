@@ -34,6 +34,7 @@ async function getWeather(event) {
         humidity: data.main.humidity,
         wind: data.wind.speed,
         country: data.sys.country,
+        iconId: data.weather[0].icon,
         icon: WEATHER_ICONS[data.weather[0].icon]
     }
     updateHtml(weather)
@@ -47,14 +48,15 @@ searchInput.addEventListener('input', (event) => {
     //console.log(event.target.value)
 })
 
-function updateHtml({ temperature, main, location, country, humidity, wind, icon }){
+function updateHtml({ temperature, main, location, country, humidity, wind, iconId, icon }){
     const temp = document.querySelector('.info__temperature')
     const condition = document.querySelector('.info__condition')
     const locationDiv = document.querySelector('.info__location')
-    const humPercentage = document.querySelector('.info-conditions__humidity-percentage')
-    const windSpeed = document.querySelector('.info-conditions__wind-speed-speed')
+    const humPercentage = document.querySelector('.info-conditions__humidity')
+    const windSpeed = document.querySelector('.info-conditions__wind-speed')
     const infoImage = document.querySelector('.info__image')
     const input = document.querySelector('.search-bar__input')
+    const body = document.querySelector('body')
     input.value = ''
     infoImage.setAttribute('src', `./images/SVG/${icon}.svg`)
     temp.innerText = `${temperature}°C`;
@@ -62,4 +64,19 @@ function updateHtml({ temperature, main, location, country, humidity, wind, icon
     locationDiv.innerHTML = `${location}, <span style="font-weight: bold">${country}</span>`;
     humPercentage.innerText = `${humidity}%`;
     windSpeed.innerText = `${wind} Km/h`;
+    let bodyClass = '';
+
+    if (main === 'Clouds'){
+        bodyClass = 'body--clouds'
+    } else if (main === 'Rain') {
+        bodyClass = 'body--rain'
+    } else {
+        bodyClass = 'body--clear'
+    }
+
+    if(iconId.includes('n')){
+        bodyClass += ' body--night'
+    }
+
+    body.className = bodyClass
 }
